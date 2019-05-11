@@ -42,6 +42,41 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerSalida.setAdapter(adaptador2);
     }
 
+    public void mostrarResultado(){
+        if(spinnerEntrada.getSelectedItemPosition()==1 && spinnerSalida.getSelectedItemPosition()==1)
+            tempSalida=(tempEntrada*1.8)+32;
+        else if(spinnerEntrada.getSelectedItemPosition()==1 && spinnerSalida.getSelectedItemPosition()==2)
+            tempSalida=tempEntrada+273.15;
+        else if(spinnerEntrada.getSelectedItemPosition()==1 && spinnerSalida.getSelectedItemPosition()==3)
+            tempSalida=(tempEntrada*1.8)+491.67;
+
+
+        else if(spinnerEntrada.getSelectedItemPosition()==2 && spinnerSalida.getSelectedItemPosition()==1)
+            tempSalida=(tempEntrada-32)/1.8;
+        else if(spinnerEntrada.getSelectedItemPosition()==2 && spinnerSalida.getSelectedItemPosition()==2)
+            tempSalida=(tempEntrada+459.67)/1.8;
+        else if(spinnerEntrada.getSelectedItemPosition()==2 && spinnerSalida.getSelectedItemPosition()==3)
+            tempSalida=tempEntrada+459.67;
+
+
+        else if(spinnerEntrada.getSelectedItemPosition()==3 && spinnerSalida.getSelectedItemPosition()==1)
+            tempSalida=tempEntrada-273.15;
+        else if(spinnerEntrada.getSelectedItemPosition()==3 && spinnerSalida.getSelectedItemPosition()==2)
+            tempSalida=((tempEntrada-273.15)*1.8)+32;
+        else if(spinnerEntrada.getSelectedItemPosition()==3 && spinnerSalida.getSelectedItemPosition()==3)
+            tempSalida=tempEntrada*1.8;
+
+
+        else if(spinnerEntrada.getSelectedItemPosition()==4 && spinnerSalida.getSelectedItemPosition()==1)
+            tempSalida=(tempEntrada-491.67)/1.8;
+        else if(spinnerEntrada.getSelectedItemPosition()==4 && spinnerSalida.getSelectedItemPosition()==2)
+            tempSalida=tempEntrada-459.67;
+        else if(spinnerEntrada.getSelectedItemPosition()==4 && spinnerSalida.getSelectedItemPosition()==3)
+            tempSalida=tempEntrada/1.8;
+
+        cajaSalida.setText(redondear.format(tempSalida));
+    }
+
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {
         return false;
