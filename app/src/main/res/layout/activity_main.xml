@@ -7,12 +7,97 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/lbl_a"
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/lbl_a"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_convertir" />
+
+    <EditText
+        android:id="@+id/caja_salida"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/caja_a"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_entrada" />
+
+    <Spinner
+        android:id="@+id/spinner_salida"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/lbl_a"
+        app:layout_constraintTop_toBottomOf="@+id/caja_entrada" />
+
+    <TextView
+        android:id="@+id/lbl_convertir"
+        android:layout_width="85dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="140dp"
+        android:text="@string/lbl_converitir"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_entrada"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="16dp"
+        android:animateLayoutChanges="true"
+        android:animationCache="true"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/caja_entrada"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="15dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/caja_de"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/spinner_entrada"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/lbl_convertir"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="40dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/lbl_igual"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/caja_salida"
+        app:layout_constraintTop_toBottomOf="@+id/caja_entrada" />
 
 </android.support.constraint.ConstraintLayout>
