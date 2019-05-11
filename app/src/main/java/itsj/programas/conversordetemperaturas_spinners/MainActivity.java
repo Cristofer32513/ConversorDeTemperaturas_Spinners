@@ -32,6 +32,61 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerSalida.setOnItemSelectedListener(this);
 
         cajaEntrada=findViewById(R.id.caja_entrada);
+        cajaEntrada.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(event.getAction()==KeyEvent.ACTION_DOWN) {
+                    if(keyCode==KeyEvent.KEYCODE_PERIOD) {
+                        if(cajaEntrada.getText().toString().contains(".")) {
+                            Toast.makeText(getApplicationContext(), "Solo puedes ingresar valores reales.", Toast.LENGTH_SHORT).show();
+                            cajaEntrada.setText(respaldo);
+                            cajaEntrada.setSelection(cajaEntrada.getText().toString().length());
+                            return true;
+                        }
+                        else
+                            return false;
+                    }
+                    else
+                        return false;
+                }
+                else if(event.getAction()==KeyEvent.ACTION_UP) {
+                    if(keyCode!=KeyEvent.KEYCODE_0 && keyCode!=KeyEvent.KEYCODE_1 && keyCode!=KeyEvent.KEYCODE_2 && keyCode!=KeyEvent.KEYCODE_3 &&
+                            keyCode!=KeyEvent.KEYCODE_4 && keyCode!=KeyEvent.KEYCODE_5 && keyCode!=KeyEvent.KEYCODE_6 && keyCode!=KeyEvent.KEYCODE_7 &&
+                            keyCode!=KeyEvent.KEYCODE_8 && keyCode!=KeyEvent.KEYCODE_9 && keyCode!=KeyEvent.KEYCODE_DEL && keyCode!=KeyEvent.KEYCODE_PERIOD) {
+                        Toast.makeText(getApplicationContext(), "Solo puedes ingresar numeros.", Toast.LENGTH_SHORT).show();
+                        if(cajaEntrada.getText().toString().length()==0)
+                            cajaEntrada.setText("");
+                        else {
+                            cajaEntrada.setText(respaldo);
+                            cajaEntrada.setSelection(cajaEntrada.getText().toString().length());
+                        }
+                        return true;
+                    }
+                    else {
+                        respaldo=cajaEntrada.getText().toString();
+                        if(!cajaEntrada.getText().toString().equals("")) {
+                            if(cajaEntrada.getText().toString().equals(".")) {
+                                cajaEntrada.setText("0.");
+                                cajaEntrada.setSelection(cajaEntrada.getText().toString().length());
+                            }
+                            tempEntrada=Double.parseDouble(cajaEntrada.getText().toString());
+                            tempSalida=0;
+                            if(spinnerEntrada.getSelectedItem()!=null && spinnerSalida.getSelectedItem()!=null &&
+                                    spinnerEntrada.getSelectedItemPosition()!=0 &&
+                                    spinnerSalida.getSelectedItemPosition()!=0)
+                                mostrarResultado();
+                            else
+                                cajaSalida.setText("");
+                        }
+                        else
+                            cajaSalida.setText("");
+                        return false;
+                    }
+                }
+                else
+                    return true;
+            }
+        });
 
         cajaSalida=findViewById(R.id.caja_salida);
 
