@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ConversorDeTemperaturas_Spinners</string>
+
+    <string name="lbl_converitir">Convertir:</string>
+    <string name="lbl_a">A:</string>
+    <string name="caja_de"></string>
+    <string name="caja_a"></string>
+    <string name="lbl_igual">=</string>
+</resources>
